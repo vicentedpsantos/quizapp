@@ -16,15 +16,10 @@ void main() {
           Image.asset('assets/images/quiz-logo.png', width: 300),
           const SizedBox(height: 70),
           const StyledText('Learn Flutter the fun way!', 28.0, Colors.white),
-          TextButton(
-              onPressed: startQuiz,
-              style: TextButton.styleFrom(
-                  padding: const EdgeInsets.only(
-                    top: 50.0,
-                  ),
-                  foregroundColor: Colors.white,
-                  textStyle: const TextStyle(fontSize: 15.0)),
-              child: const Text('Start Quiz!')),
+          OutlinedButton(
+            onPressed: startQuiz,
+            child: const StyledText('Start Quiz!', 15.0, Colors.white),
+          ),
         ]),
       ),
     )),
