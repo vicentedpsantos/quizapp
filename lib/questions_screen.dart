@@ -15,6 +15,16 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   var currentQuestion = 0;
 
+  void moveToNextQuestion() {
+    if (currentQuestion + 1 >= questions.length) {
+      print("the list of question is over");
+    } else {
+      setState(() {
+        currentQuestion += 1;
+      });
+    }
+  }
+
   @override
   Widget build(context) {
     return Center(
@@ -24,7 +34,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           style: const TextStyle(
               fontSize: 28.0, color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        QuestionAnswers(questions[currentQuestion].getAnswers())
+        QuestionAnswers(questions[currentQuestion].getAnswers(), moveToNextQuestion)
       ]),
     );
   }
