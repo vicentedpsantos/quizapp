@@ -3,4 +3,8 @@ class QuizQuestion {
 
   final String text;
   final List<String> answers;
+
+  List<String> getAnswers() { return answers; }
+
+  String getText() { return text; }
 }
