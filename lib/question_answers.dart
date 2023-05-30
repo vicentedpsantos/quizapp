@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 class QuestionAnswers extends StatelessWidget {
-  const QuestionAnswers(this.answers, this.moveToNextQuestion, {super.key});
+  const QuestionAnswers(this.answers, this.answerQuestion, {super.key});
 
   final List<String> answers;
 
-  final void Function() moveToNextQuestion;
+  final void Function(String answer) answerQuestion;
 
   List<Widget> decorateAnswers(List<String> answers) {
     return answers
         .map((answer) => OutlinedButton(
-              onPressed: moveToNextQuestion,
+              onPressed: () { answerQuestion(answer); },
               style: const ButtonStyle(
                   backgroundColor:
                       MaterialStatePropertyAll<Color>(Colors.deepPurple)),

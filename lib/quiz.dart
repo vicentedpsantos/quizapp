@@ -13,10 +13,17 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
   var activeScreen = 'start-screen';
+  var answers = {};
 
   void switchToScreen(String screenName) {
     setState(() {
       activeScreen = screenName;
+    });
+  }
+
+  void storeAnswer(answer, questionId) {
+    setState(() {
+      answers[questionId] = answer;
     });
   }
 
@@ -28,11 +35,11 @@ class _QuizState extends State<Quiz> {
         }
       case 'questions-screen':
         {
-          return QuestionsScreen(switchToScreen);
+          return QuestionsScreen(switchToScreen, storeAnswer);
         }
       case 'result-screen':
         {
-          return ResultScreen(switchToScreen);
+          return ResultScreen(switchToScreen, answers);
         }
       default:
         {

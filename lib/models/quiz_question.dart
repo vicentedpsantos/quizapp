@@ -1,10 +1,13 @@
 class QuizQuestion {
-  const QuizQuestion(this.text, this.answers);
+  const QuizQuestion(this.id, this.text, this.answers, this.correctAnswer);
 
-  final String text;
   final List<String> answers;
+  final String correctAnswer;
+  final String id;
+  final String text;
 
-  List<String> getAnswers() { return answers; }
-
-  String getText() { return text; }
+  List<String> getAnswers() => answers;
+  String getCorrectAnswer() => correctAnswer;
+  String getId() => id;
+  String getText() => text;
 }
