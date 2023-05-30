@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:quizapp/styled_text.dart';
 
 class StartScreen extends StatelessWidget {
-  const StartScreen(this.startQuiz, {super.key});
+  const StartScreen(this.switchToScreen, {super.key});
 
-  final void Function() startQuiz;
+  final void Function(String stringName) switchToScreen;
 
   @override
   Widget build(context) {
@@ -17,7 +17,9 @@ class StartScreen extends StatelessWidget {
         const StyledText('Learn Flutter the fun way!', 28.0, Colors.white),
         const SizedBox(height: 30),
         OutlinedButton.icon(
-          onPressed: startQuiz,
+          onPressed: () {
+            switchToScreen('questions-screen');
+          },
           style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
           icon: const Icon(Icons.arrow_right_alt),
           label: const Text('Start Quiz!'),

@@ -4,12 +4,12 @@ import 'package:quizapp/data/questions.dart';
 import 'package:quizapp/question_answers.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key});
+  const QuestionsScreen(this.switchToScreen, {super.key});
+
+  final void Function(String stringName) switchToScreen;
 
   @override
-  State<QuestionsScreen> createState() {
-    return _QuestionsScreenState();
-  }
+  State<QuestionsScreen> createState() => _QuestionsScreenState();
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
@@ -17,7 +17,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
 
   void moveToNextQuestion() {
     if (currentQuestion + 1 >= questions.length) {
-      print("the list of question is over");
+      widget.switchToScreen('result-screen');
     } else {
       setState(() {
         currentQuestion += 1;
@@ -34,7 +34,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           style: const TextStyle(
               fontSize: 28.0, color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        QuestionAnswers(questions[currentQuestion].getAnswers(), moveToNextQuestion)
+        QuestionAnswers(
+            questions[currentQuestion].getAnswers(), moveToNextQuestion)
       ]),
     );
   }
