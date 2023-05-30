@@ -9,23 +9,32 @@ class QuestionAnswers extends StatelessWidget {
 
   List<Widget> decorateAnswers(List<String> answers) {
     return answers
-        .map((answer) => OutlinedButton(
-              onPressed: () { answerQuestion(answer); },
-              style: const ButtonStyle(
-                  backgroundColor:
-                      MaterialStatePropertyAll<Color>(Colors.deepPurple)),
-              child: Text(answer,
-                  style: const TextStyle(fontSize: 20.0, color: Colors.white)),
-            ))
+        .map((answer) => [
+              SizedBox(height: 20),
+              SizedBox(
+                  child: ElevatedButton(
+                onPressed: () {
+                  answerQuestion(answer);
+                },
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurple,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40)),
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
+                    minimumSize: Size(double.infinity, 40)),
+                child: Text(answer,
+                    style:
+                        const TextStyle(fontSize: 15.0, color: Colors.white)),
+              ))
+            ])
+        .expand((w) => w)
         .toList();
   }
 
   @override
   Widget build(context) {
-    return Padding(
-        padding: const EdgeInsets.all(4.0),
-        child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: decorateAnswers(answers)));
+    return Column(
+        mainAxisSize: MainAxisSize.min, children: decorateAnswers(answers));
   }
 }

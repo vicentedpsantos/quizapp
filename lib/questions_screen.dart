@@ -6,7 +6,7 @@ import 'package:quizapp/question_answers.dart';
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen(this.switchToScreen, this.storeAnswer, {super.key});
 
-  final void Function(String stringName ) switchToScreen;
+  final void Function(String stringName) switchToScreen;
   final void Function(String answer, String questionId) storeAnswer;
 
   @override
@@ -34,15 +34,17 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
 
   @override
   Widget build(context) {
-    return Center(
-      child: Column(mainAxisSize: MainAxisSize.min, children: [
-        Text(
-          questions[currentQuestion].getText(),
-          style: const TextStyle(
-              fontSize: 28.0, color: Colors.white, fontWeight: FontWeight.bold),
-        ),
-        QuestionAnswers(
-            questions[currentQuestion].getAnswers(), answerQuestion)
+    return SizedBox(
+      width: double.infinity,
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Center(
+            child: Text(
+          questions[currentQuestion].text,
+          style: const TextStyle(fontSize: 20.0, color: Colors.white),
+          textAlign: TextAlign.center,
+        )),
+        SizedBox(height: 30),
+        QuestionAnswers(questions[currentQuestion].getAnswers(), answerQuestion)
       ]),
     );
   }

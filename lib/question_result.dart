@@ -14,14 +14,14 @@ class QuestionResult extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return  ColoredBox(
+    return ColoredBox(
       color: Colors.green,
       child: Material(
         child: ListTile(
-          leading: correctAnswer() ? Icon(Icons.check) : Icon(Icons.close),
-          title: Text(question.getText()),
-          subtitle: Text("Answer given: $answerGiven, correct answer: $question.getCorrectAnswer()")
-        ),
+            leading: correctAnswer() ? const Icon(Icons.check) : const Icon(Icons.close),
+            title: Text(question.getText()),
+            subtitle: Text(
+                "Answer given: $answerGiven, correct answer: $question.getCorrectAnswer()")),
       ),
     );
   }
