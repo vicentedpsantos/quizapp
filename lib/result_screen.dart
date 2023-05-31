@@ -17,6 +17,7 @@ class ResultScreen extends StatelessWidget {
       QuizQuestion question = questions.firstWhere((quizQuestion) => quizQuestion.getId() == questionId);
 
       results.add(QuestionResult(question, answerGiven));
+      results.add(SizedBox(height: 20));
     });
 
     return results;

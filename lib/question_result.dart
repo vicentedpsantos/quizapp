@@ -15,10 +15,10 @@ class QuestionResult extends StatelessWidget {
   @override
   Widget build(context) {
     return ColoredBox(
-      color: Colors.green,
+      color: Color.fromARGB(255,255,255,255),
       child: Material(
         child: ListTile(
-            leading: correctAnswer() ? const Icon(Icons.check) : const Icon(Icons.close),
+            leading: correctAnswer() ? const Icon(Icons.check, color: Colors.green) : const Icon(Icons.close, color: Colors.red),
             title: Text(question.getText()),
             subtitle: Text(
                 "Answer given: $answerGiven, correct answer: $question.getCorrectAnswer()")),
