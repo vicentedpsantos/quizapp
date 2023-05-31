@@ -8,7 +8,10 @@ class QuestionAnswers extends StatelessWidget {
   final void Function(String answer) answerQuestion;
 
   List<Widget> decorateAnswers(List<String> answers) {
-    return answers
+    final shuffledList = List.of(answers);
+    shuffledList.shuffle();
+
+    return shuffledList
         .map((answer) => [
               SizedBox(height: 20),
               SizedBox(
