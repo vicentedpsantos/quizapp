@@ -21,8 +21,8 @@ class QuestionAnswers extends StatelessWidget {
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(40)),
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
-                    minimumSize: Size(double.infinity, 40)),
+                    padding:
+                        EdgeInsets.symmetric(vertical: 10, horizontal: 40)),
                 child: Text(answer,
                     style:
                         const TextStyle(fontSize: 15.0, color: Colors.white)),
@@ -34,7 +34,11 @@ class QuestionAnswers extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return Column(
-        mainAxisSize: MainAxisSize.min, children: decorateAnswers(answers));
+    return Container(
+        margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
+            children: decorateAnswers(answers)));
   }
 }
