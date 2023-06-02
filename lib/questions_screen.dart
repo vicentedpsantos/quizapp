@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:quizapp/data/questions.dart';
 import 'package:quizapp/question_answers.dart';
@@ -40,7 +41,11 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
         Center(
             child: Text(
           questions[currentQuestion].text,
-          style: const TextStyle(fontSize: 20.0, color: Colors.white),
+          style: GoogleFonts.lato(
+              textStyle: const TextStyle(
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 201, 153, 251))),
           textAlign: TextAlign.center,
         )),
         const SizedBox(height: 30),
