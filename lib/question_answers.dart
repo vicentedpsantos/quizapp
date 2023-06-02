@@ -27,6 +27,7 @@ class QuestionAnswers extends StatelessWidget {
                     padding:
                         EdgeInsets.symmetric(vertical: 10, horizontal: 40)),
                 child: Text(answer,
+                  textAlign: TextAlign.center,
                     style:
                         const TextStyle(fontSize: 15.0, color: Colors.white)),
               ))

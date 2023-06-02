@@ -23,11 +23,11 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   }
 
   void maybeMoveToNextQuestion() {
-    if (currentQuestion + 1 >= questions.length) {
+    if (currentQuestion + 1 == questions.length) {
       widget.switchToScreen('result-screen');
     } else {
       setState(() {
-        currentQuestion += 1;
+        currentQuestion++;
       });
     }
   }
@@ -43,7 +43,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           style: const TextStyle(fontSize: 20.0, color: Colors.white),
           textAlign: TextAlign.center,
         )),
-        SizedBox(height: 30),
+        const SizedBox(height: 30),
         QuestionAnswers(questions[currentQuestion].getAnswers(), answerQuestion)
       ]),
     );
