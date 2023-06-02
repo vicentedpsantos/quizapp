@@ -14,7 +14,8 @@ class ResultScreen extends StatelessWidget {
     List<Widget> results = [];
 
     answers.forEach((questionId, answerGiven) {
-      QuizQuestion question = questions.firstWhere((quizQuestion) => quizQuestion.getId() == questionId);
+      QuizQuestion question = questions
+          .firstWhere((quizQuestion) => quizQuestion.getId() == questionId);
 
       results.add(QuestionResult(question, answerGiven));
       results.add(SizedBox(height: 20));
@@ -25,8 +26,21 @@ class ResultScreen extends StatelessWidget {
 
   @override
   build(context) {
-    return Center(
-      child: Column(mainAxisSize: MainAxisSize.min, children: buildResult()),
-    );
+    return SizedBox(
+        width: double.infinity,
+        child: Container(
+          margin: const EdgeInsets.all(40),
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Text('You answer X out of Y questions correctly!'),
+            SizedBox(height: 30),
+            Text('List of answers and questions...'),
+            SizedBox(height: 30),
+            TextButton(
+                onPressed: () {
+                  switchToScreen('start-screen');
+                },
+                child: const Text('Restart quiz!'))
+          ]),
+        ));
   }
 }
